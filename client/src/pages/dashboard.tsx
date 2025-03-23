@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { User } from "lucide-react";
+import { NucleyesLogoWithText } from "@/components/ui/NucleyesLogo";
 
 const Dashboard: React.FC = () => {
   const { user, logout, isLogoutLoading } = useAuth();
@@ -46,6 +47,9 @@ const Dashboard: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-gray-200 mb-6">
           <div>
+            <div className="mb-3">
+              <NucleyesLogoWithText size={32} className="text-gray-700" />
+            </div>
             <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
             <p className="text-gray-600 mt-1">Welcome back, {user.name || user.username}</p>
           </div>

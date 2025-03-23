@@ -10,6 +10,7 @@ import { profileUpdateFormSchema } from "@/lib/validators";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useQuery } from "@tanstack/react-query";
+import { NucleyesLogo } from "@/components/ui/NucleyesLogo";
 
 interface ProfileFormValues {
   name: string;
@@ -75,14 +76,19 @@ const Profile: React.FC = () => {
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
       <div className="max-w-2xl mx-auto">
         <div className="mb-6">
-          <Button
-            variant="ghost"
-            className="mb-4 pl-0 flex items-center text-gray-600 hover:text-gray-900"
-            onClick={() => setLocation("/dashboard")}
-          >
-            <ChevronLeft className="mr-1 h-4 w-4" />
-            Back to Dashboard
-          </Button>
+          <div className="flex items-center mb-4">
+            <Button
+              variant="ghost"
+              className="pl-0 flex items-center text-gray-600 hover:text-gray-900"
+              onClick={() => setLocation("/dashboard")}
+            >
+              <ChevronLeft className="mr-1 h-4 w-4" />
+              Back to Dashboard
+            </Button>
+            <div className="ml-auto">
+              <NucleyesLogo size={28} className="text-gray-700" />
+            </div>
+          </div>
           <h1 className="text-2xl font-bold text-gray-900">Profile Settings</h1>
           <p className="text-gray-600 mt-1">Manage your account information</p>
         </div>
