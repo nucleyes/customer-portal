@@ -42,12 +42,12 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-gray-200 mb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-border mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-            <p className="text-gray-600 mt-1">Welcome back, {user.name || user.username}</p>
+            <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
+            <p className="text-muted-foreground mt-1">Welcome back, {user.name || user.username}</p>
           </div>
           <div className="mt-4 sm:mt-0 flex items-center space-x-4">
             <Button
@@ -83,17 +83,17 @@ const Dashboard: React.FC = () => {
                 </Avatar>
                 <div>
                   <p className="text-lg font-medium">{user.name || user.username}</p>
-                  <p className="text-sm text-gray-500">{user.email}</p>
+                  <p className="text-sm text-muted-foreground">{user.email}</p>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Username:</span>
-                  <span className="font-medium">{user.username}</span>
+                  <span className="text-muted-foreground">Username:</span>
+                  <span className="font-medium text-foreground">{user.username}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-500">Email Verified:</span>
+                  <span className="text-muted-foreground">Email Verified:</span>
                   <span className={`font-medium ${user.emailVerified ? "text-green-600" : "text-red-600"}`}>
                     {user.emailVerified ? "Yes" : "No"}
                   </span>
@@ -115,8 +115,8 @@ const Dashboard: React.FC = () => {
             <CardContent>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-medium mb-2">Password</h3>
-                  <p className="text-sm text-gray-500 mb-3">
+                  <h3 className="text-sm font-medium text-foreground mb-2">Password</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
                     Your password was last changed never.
                   </p>
                   <Button variant="outline" size="sm" className="text-sm">
@@ -125,8 +125,8 @@ const Dashboard: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium mb-2">Two-Factor Authentication</h3>
-                  <p className="text-sm text-gray-500 mb-3">
+                  <h3 className="text-sm font-medium text-foreground mb-2">Two-Factor Authentication</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
                     Add an extra layer of security to your account.
                   </p>
                   <Button variant="outline" size="sm" className="text-sm">

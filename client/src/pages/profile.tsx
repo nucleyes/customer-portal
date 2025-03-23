@@ -72,19 +72,19 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
       <div className="max-w-2xl mx-auto">
         <div className="mb-6">
           <Button
             variant="ghost"
-            className="mb-4 pl-0 flex items-center text-gray-600 hover:text-gray-900"
+            className="mb-4 pl-0 flex items-center text-muted-foreground hover:text-foreground"
             onClick={() => setLocation("/dashboard")}
           >
             <ChevronLeft className="mr-1 h-4 w-4" />
             Back to Dashboard
           </Button>
-          <h1 className="text-2xl font-bold text-gray-900">Profile Settings</h1>
-          <p className="text-gray-600 mt-1">Manage your account information</p>
+          <h1 className="text-2xl font-bold text-foreground">Profile Settings</h1>
+          <p className="text-muted-foreground mt-1">Manage your account information</p>
         </div>
 
         <Card>
@@ -96,12 +96,12 @@ const Profile: React.FC = () => {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="h-16 w-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
+                  <div className="h-16 w-16 rounded-full bg-secondary flex items-center justify-center text-muted-foreground">
                     <User className="h-8 w-8" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium">Profile Picture</h3>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <h3 className="text-sm font-medium text-foreground">Profile Picture</h3>
+                    <p className="text-xs text-muted-foreground mt-1">
                       Upload a profile picture (coming soon)
                     </p>
                   </div>

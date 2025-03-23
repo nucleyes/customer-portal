@@ -26,10 +26,10 @@ const PasswordResetSent: React.FC<PasswordResetSentProps> = ({
         <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
           <Mail className="h-6 w-6 text-green-500" />
         </div>
-        <h3 className="mt-2 text-lg font-medium text-gray-900">
+        <h3 className="mt-2 text-lg font-medium text-foreground">
           Check your email
         </h3>
-        <p className="mt-1 text-sm text-gray-600">
+        <p className="mt-1 text-sm text-muted-foreground">
           We've sent a password reset link to your email address. Please check
           your inbox and click the link to reset your password.
         </p>
