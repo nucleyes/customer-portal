@@ -37,7 +37,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="text-sm text-gray-600 mb-4">
+        <div className="text-sm text-muted-foreground mb-4">
           Enter your email address and we'll send you a link to reset your password.
         </div>
         
@@ -65,7 +65,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
         </Button>
 
         <div className="text-center text-sm">
-          <span className="text-gray-600">Remember your password? </span>
+          <span className="text-muted-foreground">Remember your password? </span>
           <Button
             variant="link"
             type="button"

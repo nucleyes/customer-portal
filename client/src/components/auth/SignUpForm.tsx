@@ -178,7 +178,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
             <Separator className="w-full" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-white px-2 text-gray-500">Or sign up with</span>
+            <span className="bg-card px-2 text-muted-foreground">Or sign up with</span>
           </div>
         </div>
 
@@ -187,7 +187,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
         </GoogleSignInButton>
 
         <div className="text-center text-sm">
-          <span className="text-gray-600">Already have an account? </span>
+          <span className="text-muted-foreground">Already have an account? </span>
           <Button
             variant="link"
             type="button"
