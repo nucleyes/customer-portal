@@ -157,9 +157,9 @@ const Profile: React.FC = () => {
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <h3 className="text-sm font-medium mb-1">Email address</h3>
-              <p className="text-sm text-gray-500 mb-1">{user.email}</p>
-              <p className="text-xs text-gray-500">
+              <h3 className="text-sm font-medium text-foreground mb-1">Email address</h3>
+              <p className="text-sm text-muted-foreground mb-1">{user.email}</p>
+              <p className="text-xs text-muted-foreground">
                 Your email address is{" "}
                 <span className={user.emailVerified ? "text-green-600" : "text-red-600"}>
                   {user.emailVerified ? "verified" : "not verified"}
@@ -173,8 +173,8 @@ const Profile: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-sm font-medium mb-1">Password</h3>
-              <p className="text-sm text-gray-500 mb-2">
+              <h3 className="text-sm font-medium text-foreground mb-1">Password</h3>
+              <p className="text-sm text-muted-foreground mb-2">
                 Change your password regularly to keep your account secure.
               </p>
               <Button variant="outline" size="sm">
@@ -182,9 +182,9 @@ const Profile: React.FC = () => {
               </Button>
             </div>
 
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-border">
               <h3 className="text-sm font-medium text-red-600 mb-1">Danger Zone</h3>
-              <p className="text-sm text-gray-500 mb-2">
+              <p className="text-sm text-muted-foreground mb-2">
                 Permanently delete your account and all of your data.
               </p>
               <Button variant="destructive" size="sm">
