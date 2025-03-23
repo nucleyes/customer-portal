@@ -72,19 +72,19 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
       <div className="max-w-2xl mx-auto">
         <div className="mb-6">
           <Button
             variant="ghost"
-            className="mb-4 pl-0 flex items-center text-muted-foreground hover:text-foreground"
+            className="mb-4 pl-0 flex items-center text-gray-600 hover:text-gray-900"
             onClick={() => setLocation("/dashboard")}
           >
             <ChevronLeft className="mr-1 h-4 w-4" />
             Back to Dashboard
           </Button>
-          <h1 className="text-2xl font-bold text-foreground">Profile Settings</h1>
-          <p className="text-muted-foreground mt-1">Manage your account information</p>
+          <h1 className="text-2xl font-bold text-gray-900">Profile Settings</h1>
+          <p className="text-gray-600 mt-1">Manage your account information</p>
         </div>
 
         <Card>
@@ -96,12 +96,12 @@ const Profile: React.FC = () => {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="h-16 w-16 rounded-full bg-secondary flex items-center justify-center text-muted-foreground">
+                  <div className="h-16 w-16 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
                     <User className="h-8 w-8" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-foreground">Profile Picture</h3>
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <h3 className="text-sm font-medium">Profile Picture</h3>
+                    <p className="text-xs text-gray-500 mt-1">
                       Upload a profile picture (coming soon)
                     </p>
                   </div>
@@ -157,9 +157,9 @@ const Profile: React.FC = () => {
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <h3 className="text-sm font-medium text-foreground mb-1">Email address</h3>
-              <p className="text-sm text-muted-foreground mb-1">{user.email}</p>
-              <p className="text-xs text-muted-foreground">
+              <h3 className="text-sm font-medium mb-1">Email address</h3>
+              <p className="text-sm text-gray-500 mb-1">{user.email}</p>
+              <p className="text-xs text-gray-500">
                 Your email address is{" "}
                 <span className={user.emailVerified ? "text-green-600" : "text-red-600"}>
                   {user.emailVerified ? "verified" : "not verified"}
@@ -173,8 +173,8 @@ const Profile: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-sm font-medium text-foreground mb-1">Password</h3>
-              <p className="text-sm text-muted-foreground mb-2">
+              <h3 className="text-sm font-medium mb-1">Password</h3>
+              <p className="text-sm text-gray-500 mb-2">
                 Change your password regularly to keep your account secure.
               </p>
               <Button variant="outline" size="sm">
@@ -182,9 +182,9 @@ const Profile: React.FC = () => {
               </Button>
             </div>
 
-            <div className="pt-4 border-t border-border">
+            <div className="pt-4 border-t border-gray-200">
               <h3 className="text-sm font-medium text-red-600 mb-1">Danger Zone</h3>
-              <p className="text-sm text-muted-foreground mb-2">
+              <p className="text-sm text-gray-500 mb-2">
                 Permanently delete your account and all of your data.
               </p>
               <Button variant="destructive" size="sm">

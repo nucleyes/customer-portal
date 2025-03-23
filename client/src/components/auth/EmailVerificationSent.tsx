@@ -35,10 +35,10 @@ const EmailVerificationSent: React.FC<EmailVerificationSentProps> = ({
         <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
           <CheckCircle className="h-6 w-6 text-green-500" />
         </div>
-        <h3 className="mt-2 text-lg font-medium text-foreground">
+        <h3 className="mt-2 text-lg font-medium text-gray-900">
           Verification email sent
         </h3>
-        <p className="mt-1 text-sm text-muted-foreground">
+        <p className="mt-1 text-sm text-gray-600">
           We've sent a verification link to your email address. Please check your
           inbox and click the link to verify your account.
         </p>

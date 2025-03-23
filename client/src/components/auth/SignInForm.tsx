@@ -114,7 +114,7 @@ const SignInForm: React.FC<SignInFormProps> = ({
             <Separator className="w-full" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+            <span className="bg-white px-2 text-gray-500">Or continue with</span>
           </div>
         </div>
 
@@ -123,7 +123,7 @@ const SignInForm: React.FC<SignInFormProps> = ({
         </GoogleSignInButton>
 
         <div className="text-center text-sm">
-          <span className="text-muted-foreground">Don't have an account? </span>
+          <span className="text-gray-600">Don't have an account? </span>
           <Button
             variant="link"
             type="button"
