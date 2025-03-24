@@ -24,12 +24,14 @@ const Auth: React.FC = () => {
   const { isAuthenticated } = useAuth();
   const [_, setLocation] = useLocation();
   
-  // Redirect if already authenticated
+  // Temporarily disabled redirect
+  /*
   useEffect(() => {
     if (isAuthenticated) {
       setLocation("/dashboard");
     }
   }, [isAuthenticated, setLocation]);
+  */
 
   const getTitleAndSubtitle = () => {
     switch (currentForm) {

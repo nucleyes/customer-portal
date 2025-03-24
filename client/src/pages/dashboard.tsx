@@ -8,24 +8,26 @@ import { useQuery } from "@tanstack/react-query";
 import { User } from "lucide-react";
 import { NucleyesLogoWithText } from "@/components/ui/NucleyesLogo";
 
+// Default user for testing when auth is disabled
+const DEFAULT_USER = {
+  id: 1,
+  username: "testuser",
+  email: "test@example.com",
+  name: "Test User",
+  emailVerified: true,
+  googleId: null
+};
+
 const Dashboard: React.FC = () => {
   const { user, logout, isLogoutLoading } = useAuth();
   const [_, setLocation] = useLocation();
 
-  // Protected route check
+  // Temporarily disabled authentication check
   const { isLoading } = useQuery({
     queryKey: ["/api/auth/me"],
     queryFn: async ({ queryKey }) => {
-      const res = await fetch(queryKey[0] as string, {
-        credentials: "include",
-      });
-      
-      if (res.status === 401) {
-        setLocation("/auth");
-        return null;
-      }
-      
-      return res.json();
+      // Return a mock user for testing
+      return DEFAULT_USER;
     },
   });
 
@@ -37,10 +39,8 @@ const Dashboard: React.FC = () => {
     );
   }
 
-  if (!user) {
-    setLocation("/auth");
-    return null;
-  }
+  // Use default user when auth is disabled
+  const currentUser = user || DEFAULT_USER;
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
               <NucleyesLogoWithText size={32} className="text-gray-700" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-            <p className="text-gray-600 mt-1">Welcome back, {user.name || user.username}</p>
+            <p className="text-gray-600 mt-1">Welcome back, {currentUser.name || currentUser.username}</p>
           </div>
           <div className="mt-4 sm:mt-0 flex items-center space-x-4">
             <Button
@@ -80,26 +80,26 @@ const Dashboard: React.FC = () => {
             <CardContent>
               <div className="flex items-center space-x-4 mb-4">
                 <Avatar className="h-12 w-12">
-                  <AvatarImage src="" alt={user.username} />
+                  <AvatarImage src="" alt={currentUser.username} />
                   <AvatarFallback className="bg-primary text-white">
                     <User className="h-6 w-6" />
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-lg font-medium">{user.name || user.username}</p>
-                  <p className="text-sm text-gray-500">{user.email}</p>
+                  <p className="text-lg font-medium">{currentUser.name || currentUser.username}</p>
+                  <p className="text-sm text-gray-500">{currentUser.email}</p>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-500">Username:</span>
-                  <span className="font-medium">{user.username}</span>
+                  <span className="font-medium">{currentUser.username}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-500">Email Verified:</span>
-                  <span className={`font-medium ${user.emailVerified ? "text-green-600" : "text-red-600"}`}>
-                    {user.emailVerified ? "Yes" : "No"}
+                  <span className={`font-medium ${currentUser.emailVerified ? "text-green-600" : "text-red-600"}`}>
+                    {currentUser.emailVerified ? "Yes" : "No"}
                   </span>
                 </div>
               </div>

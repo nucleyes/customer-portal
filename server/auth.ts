@@ -86,10 +86,16 @@ export function setupAuth(app: express.Express, storage: IStorage) {
 
   // Authentication middleware
   const isAuthenticated = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    // Temporarily disabled authentication
+    return next();
+    
+    // Original authentication code (commented out)
+    /*
     if (req.isAuthenticated()) {
       return next();
     }
     res.status(401).json({ message: "Unauthorized" });
+    */
   };
 
   // Helper function to generate JWT token

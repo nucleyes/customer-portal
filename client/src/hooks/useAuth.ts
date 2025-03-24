@@ -61,36 +61,15 @@ export function useAuth() {
   const { data: user, isLoading, refetch } = useQuery<User | null>({
     queryKey: ["/api/auth/me"],
     queryFn: async ({ queryKey }) => {
-      const token = getToken();
-      if (!token) return null;
-      
-      const isValid = await validateToken(token);
-      if (!isValid) {
-        removeToken();
-        return null;
-      }
-      
-      try {
-        const response = await fetch(queryKey[0] as string, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          credentials: "include",
-        });
-        
-        if (response.status === 401) {
-          removeToken();
-          return null;
-        }
-        
-        if (!response.ok) {
-          throw new Error("Failed to fetch user data");
-        }
-        
-        return await response.json();
-      } catch (error) {
-        return null;
-      }
+      // Return a mock user for testing when auth is disabled
+      return {
+        id: 1,
+        username: "testuser",
+        email: "test@example.com",
+        name: "Test User",
+        emailVerified: true,
+        googleId: null
+      };
     },
     retry: false,
   });
@@ -120,8 +99,20 @@ export function useAuth() {
   // Login mutation
   const loginMutation = useMutation({
     mutationFn: async (credentials: { email: string; password: string; rememberMe?: boolean }) => {
-      const response = await apiRequest("POST", "/api/auth/login", credentials);
-      return response.json();
+      // Simulate successful login when auth is disabled
+      return {
+        message: "Login successful",
+        user: {
+          id: 1,
+          username: "testuser",
+          email: "test@example.com",
+          name: "Test User",
+          emailVerified: true,
+          googleId: null
+        },
+        token: "mock-token",
+        rememberMe: credentials.rememberMe
+      };
     },
     onSuccess: (data) => {
       setToken(data.token, !!data.rememberMe);
@@ -287,7 +278,7 @@ export function useAuth() {
 
   // Determine auth state
   const authState: AuthState = {
-    user,
+    user: user || null,
     isLoading,
     isAuthenticated: !!user,
     token: getToken(),
